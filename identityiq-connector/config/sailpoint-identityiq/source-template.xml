@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.OpenConnectorAdapter" name="custom SailPoint IdentityIQ" type="custom SailPoint IdentityIQ" featuresString="DISCOVER_SCHEMA, PROVISIONING, SYNC_PROVISIONING, ENABLE, PASSWORD">
+	<Attributes>
+		<Map>
+			<entry key="connectorClass" value="sailpoint.iiq.connector.IIQConnector"/>
+			<entry key="host" value="http://localhost:8080/identityiq"/>
+			<entry key="user" value="spadmin"/>
+			<entry key="password" value="admin"/>
+			<entry key="pageSize" value="100"/>
+			<entry key="accountFilter" value=""/>
+		</Map>
+	</Attributes>
+	<Schemas>
+		<Schema displayAttribute="userName" identityAttribute="id" objectType="account">
+			<AttributeDefinition name="id" remediationModificationType="None" required="true" type="string"/>
+			<AttributeDefinition name="userName" remediationModificationType="None" required="true" type="string"/>
+			<AttributeDefinition name="externalId" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="displayName" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="nickName" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="profileUrl" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="title" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="userType" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="preferredLanguage" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="locale" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="timezone" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="active" remediationModificationType="None" type="boolean"/>
+			<AttributeDefinition name="name.formatted" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="name.familyName" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="name.givenName" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="name.middleName" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="name.honorificPrefix" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="name.honorificSuffix" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="employeeNumber" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="costCenter" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="organization" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="division" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="department" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="manager.id" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="manager.displayName" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="emails.home.value" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="emails.work.value" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="phoneNumbers.work.value" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="phoneNumbers.home.value" remediationModificationType="None" type="string"/>
+			<AttributeDefinition multi="true" name="ims" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="photos.photo" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="photos.thumbnail" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.work.formatted" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.work.streetAddress" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.work.locality" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.work.region" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.work.postalCode" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.work.country" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.home.formatted" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.home.streetAddress" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.home.locality" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.home.region" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.home.postalCode" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="addresses.home.country" remediationModificationType="None" type="string"/>
+			<AttributeDefinition entitlement="true" managed="true" multi="true" name="groups" remediationModificationType="None" type="string"/>
+			<AttributeDefinition entitlement="true" managed="true" multi="true" name="entitlements" remediationModificationType="None" type="string"/>
+			<AttributeDefinition entitlement="true" managed="true" multi="true" name="roles" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="meta.created" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="meta.lastModified" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="meta.location" remediationModificationType="None" type="string"/>
+			<AttributeDefinition name="meta.version" remediationModificationType="None" type="string"/>
+		</Schema>
+	</Schemas>
+</Application>

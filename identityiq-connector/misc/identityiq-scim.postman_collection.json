@@ -1,0 +1,579 @@
+{
+	"variables": [],
+	"info": {
+		"name": "IdentityIQ",
+		"_postman_id": "8c11c7e0-f689-f79f-a234-f8328e919fd4",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SCIM",
+			"description": "",
+			"item": [
+				{
+					"name": "Get OAuth token",
+					"request": {
+						"url": "https://sciminterop.sailpoint.com/identityiq/oauth2/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic MWE4ZGZ3dXNyOHhzS2lRbDN4QTlCOGpUYkJ1ZDd6Sm06aVo0elJpUGFvTHZ4cVFlRQ==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "ReadSCIMUser UpdateSCIMUser CreateSCIMUser DeleteSCIMUser",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Users - List",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "spadmin",
+								"password": "admin",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:8080/identityiq/scim/v2/Users/?startIndex=1&count=5",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3BhZG1pbjphZG1pbg==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "ReadSCIMUser UpdateSCIMUser CreateSCIMUser DeleteSCIMUser",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Users - Get One",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "spadmin",
+								"password": "admin",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:8080/identityiq/scim/v2/Users/Don.Johnson",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3BhZG1pbjphZG1pbg==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "ReadSCIMUser UpdateSCIMUser CreateSCIMUser DeleteSCIMUser",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Users - Create",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "spadmin",
+								"password": "admin",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:8080/identityiq/scim/v2/Users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3BhZG1pbjphZG1pbg==",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n      \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\": {\n        \"region\": \"Americas\",\n        \"jobtitle\": \"Global Infrastructure Manager\",\n        \"location\": \"Austin\",\n        \"lastRefresh\": \"2016-08-02T18:46:43.012-05:00\",\n        \"empId\": \"1a2a\",\n        \"costcenter\": [\n          \"R03\",\n          \"L07\"\n        ],\n        \"isManager\": true,\n        \"capabilities\": [],\n        \"riskScore\": 1000,\n        \"Department\": \"Regional Operations\"\n      },\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n      ],\n      \"name\": {\n        \"formatted\": \"Don Johnson\",\n        \"familyName\": \"Johnson\",\n        \"givenName\": \"Don\"\n      },\n      \"userName\": \"Don.Johnson\",\n      \"active\": true,\n      \"emails\": [\n        {\n          \"primary\": \"true\",\n          \"value\": \"Don.Johnson@demoexample.com\",\n          \"type\": \"work\"\n        }\n      ],\n      \"displayName\": \"Don Johnson\"\n    }"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"url": "http://localhost:8080/identityiq/scim/v2/Users",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"name": "Authorization",
+										"value": "Basic c3BhZG1pbjphZG1pbg=="
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": "    {\n      \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\": {\n        \"region\": \"Americas\",\n        \"jobtitle\": \"Global Infrastructure Manager\",\n        \"location\": \"Austin\",\n        \"lastRefresh\": \"2016-08-02T18:46:43.012-05:00\",\n        \"empId\": \"1a2a\",\n        \"costcenter\": [\n          \"R03\",\n          \"L07\"\n        ],\n        \"isManager\": true,\n        \"capabilities\": [],\n        \"riskScore\": 1000,\n        \"Department\": \"Regional Operations\"\n      },\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n      ],\n      \"name\": {\n        \"formatted\": \"Don Johnson\",\n        \"familyName\": \"Johnson\",\n        \"givenName\": \"Don\"\n      },\n      \"userName\": \"Don.Johnson\",\n      \"active\": true,\n      \"emails\": [\n        {\n          \"primary\": \"true\",\n          \"value\": \"Don.Johnson@demoexample.com\",\n          \"type\": \"work\"\n        }\n      ],\n      \"displayName\": \"Don Johnson\"\n    }"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "javascript",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"name": "Cache-Control",
+									"key": "Cache-Control",
+									"value": "no-store",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"name": "Content-Length",
+									"key": "Content-Length",
+									"value": "992",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"name": "Content-Type",
+									"key": "Content-Type",
+									"value": "application/scim+json",
+									"description": "The mime type of this content"
+								},
+								{
+									"name": "Date",
+									"key": "Date",
+									"value": "Wed, 19 Oct 2016 22:56:53 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"name": "ETag",
+									"key": "ETag",
+									"value": "W/\"1476917813953\"",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"name": "Location",
+									"key": "Location",
+									"value": "http://localhost:8080/identityiq/scim/v2/Users/2c9091fc57def0af0157df2962c1008d",
+									"description": "Used in redirection, or when a new resource has been created."
+								},
+								{
+									"name": "Pragma",
+									"key": "Pragma",
+									"value": "no-cache",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								},
+								{
+									"name": "Server",
+									"key": "Server",
+									"value": "Apache-Coyote/1.1",
+									"description": "A name for the server"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"hostOnly": true,
+									"httpOnly": true,
+									"domain": "localhost",
+									"path": "/identityiq/",
+									"secure": false,
+									"session": true,
+									"value": "F1D006ACEFA992471F36133ECB5A4317"
+								},
+								{
+									"expires": "Invalid Date",
+									"hostOnly": true,
+									"httpOnly": false,
+									"domain": "localhost",
+									"path": "/",
+									"secure": false,
+									"session": true,
+									"value": "RnYPAw0aOHPX++RmSj3LkfYWZM5tA4fRB5gO3SG1US0%3D"
+								}
+							],
+							"responseTime": 68,
+							"body": "{\"id\":\"2c9091fc57def0af0157df2962c1008d\",\"urn:ietf:params:scim:schemas:sailpoint:1.0:User\":{\"region\":\"Americas\",\"jobtitle\":\"Global Infrastructure Manager\",\"location\":\"Austin\",\"locationOwner\":{},\"empId\":\"1a2a\",\"regionOwner\":{},\"costcenter\":[\"R03\",\"L07\"],\"isManager\":false,\"capabilities\":[],\"Department\":\"Regional Operations\"},\"schemas\":[\"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\"urn:ietf:params:scim:schemas:core:2.0:User\",\"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"],\"name\":{\"formatted\":\"Don Johnson\",\"familyName\":\"Johnson\",\"givenName\":\"Don\"},\"userName\":\"Don.Johnson\",\"active\":true,\"emails\":[{\"primary\":\"true\",\"value\":\"Don.Johnson@demoexample.com\",\"type\":\"work\"}],\"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\":{\"manager\":{}},\"displayName\":\"Don Johnson\",\"meta\":{\"created\":\"2016-10-19T17:56:53.953-05:00\",\"location\":\"http://localhost:8080/identityiq/scim/v2/Users/2c9091fc57def0af0157df2962c1008d\",\"resourceType\":\"User\",\"version\":\"W/\\\"1476917813953\\\"\"}}"
+						}
+					]
+				},
+				{
+					"name": "Users - Update",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "spadmin",
+								"password": "admin",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:8080/identityiq/scim/v2/Users/Don.Johnson",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3BhZG1pbjphZG1pbg==",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n      \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\": {\n        \"region\": \"Americas\",\n        \"jobtitle\": \"Global Infrastructure Manager\",\n        \"location\": \"Austin\",\n        \"lastRefresh\": \"2016-08-02T18:46:43.012-05:00\",\n        \"empId\": \"1a2a\",\n        \"costcenter\": [\n          \"R03\",\n          \"L07\"\n        ],\n        \"isManager\": true,\n        \"capabilities\": [],\n        \"riskScore\": 1000,\n        \"Department\": \"Regional Operations\"\n      },\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n      ],\n      \"name\": {\n        \"formatted\": \"Don Johnson2\",\n        \"familyName\": \"Johnson2\",\n        \"givenName\": \"Don2\"\n      },\n      \"userName\": \"Don.Johnson\",\n      \"active\": true,\n      \"emails\": [\n        {\n          \"primary\": \"true\",\n          \"value\": \"Don.Johnson@demoexample.com\",\n          \"type\": \"work\"\n        }\n      ],\n      \"displayName\": \"Don Johnson\"\n    }"
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"url": "http://localhost:8080/identityiq/scim/v2/Users",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"name": "Authorization",
+										"value": "Basic c3BhZG1pbjphZG1pbg=="
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": "    {\n      \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\": {\n        \"region\": \"Americas\",\n        \"jobtitle\": \"Global Infrastructure Manager\",\n        \"location\": \"Austin\",\n        \"lastRefresh\": \"2016-08-02T18:46:43.012-05:00\",\n        \"empId\": \"1a2a\",\n        \"costcenter\": [\n          \"R03\",\n          \"L07\"\n        ],\n        \"isManager\": true,\n        \"capabilities\": [],\n        \"riskScore\": 1000,\n        \"Department\": \"Regional Operations\"\n      },\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n      ],\n      \"name\": {\n        \"formatted\": \"Don Johnson\",\n        \"familyName\": \"Johnson\",\n        \"givenName\": \"Don\"\n      },\n      \"userName\": \"Don.Johnson\",\n      \"active\": true,\n      \"emails\": [\n        {\n          \"primary\": \"true\",\n          \"value\": \"Don.Johnson@demoexample.com\",\n          \"type\": \"work\"\n        }\n      ],\n      \"displayName\": \"Don Johnson\"\n    }"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "javascript",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"name": "Cache-Control",
+									"key": "Cache-Control",
+									"value": "no-store",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"name": "Content-Length",
+									"key": "Content-Length",
+									"value": "992",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"name": "Content-Type",
+									"key": "Content-Type",
+									"value": "application/scim+json",
+									"description": "The mime type of this content"
+								},
+								{
+									"name": "Date",
+									"key": "Date",
+									"value": "Wed, 19 Oct 2016 22:56:53 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"name": "ETag",
+									"key": "ETag",
+									"value": "W/\"1476917813953\"",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"name": "Location",
+									"key": "Location",
+									"value": "http://localhost:8080/identityiq/scim/v2/Users/2c9091fc57def0af0157df2962c1008d",
+									"description": "Used in redirection, or when a new resource has been created."
+								},
+								{
+									"name": "Pragma",
+									"key": "Pragma",
+									"value": "no-cache",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								},
+								{
+									"name": "Server",
+									"key": "Server",
+									"value": "Apache-Coyote/1.1",
+									"description": "A name for the server"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"hostOnly": true,
+									"httpOnly": true,
+									"domain": "localhost",
+									"path": "/identityiq/",
+									"secure": false,
+									"session": true,
+									"value": "F1D006ACEFA992471F36133ECB5A4317"
+								},
+								{
+									"expires": "Invalid Date",
+									"hostOnly": true,
+									"httpOnly": false,
+									"domain": "localhost",
+									"path": "/",
+									"secure": false,
+									"session": true,
+									"value": "RnYPAw0aOHPX++RmSj3LkfYWZM5tA4fRB5gO3SG1US0%3D"
+								}
+							],
+							"responseTime": 68,
+							"body": "{\"id\":\"2c9091fc57def0af0157df2962c1008d\",\"urn:ietf:params:scim:schemas:sailpoint:1.0:User\":{\"region\":\"Americas\",\"jobtitle\":\"Global Infrastructure Manager\",\"location\":\"Austin\",\"locationOwner\":{},\"empId\":\"1a2a\",\"regionOwner\":{},\"costcenter\":[\"R03\",\"L07\"],\"isManager\":false,\"capabilities\":[],\"Department\":\"Regional Operations\"},\"schemas\":[\"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\"urn:ietf:params:scim:schemas:core:2.0:User\",\"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"],\"name\":{\"formatted\":\"Don Johnson\",\"familyName\":\"Johnson\",\"givenName\":\"Don\"},\"userName\":\"Don.Johnson\",\"active\":true,\"emails\":[{\"primary\":\"true\",\"value\":\"Don.Johnson@demoexample.com\",\"type\":\"work\"}],\"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\":{\"manager\":{}},\"displayName\":\"Don Johnson\",\"meta\":{\"created\":\"2016-10-19T17:56:53.953-05:00\",\"location\":\"http://localhost:8080/identityiq/scim/v2/Users/2c9091fc57def0af0157df2962c1008d\",\"resourceType\":\"User\",\"version\":\"W/\\\"1476917813953\\\"\"}}"
+						}
+					]
+				},
+				{
+					"name": "Users - Delete",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "spadmin",
+								"password": "admin",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:8080/identityiq/scim/v2/Users/{{name}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3BhZG1pbjphZG1pbg==",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"url": "http://localhost:8080/identityiq/scim/v2/Users",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"name": "Authorization",
+										"value": "Basic c3BhZG1pbjphZG1pbg=="
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": "    {\n      \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\": {\n        \"region\": \"Americas\",\n        \"jobtitle\": \"Global Infrastructure Manager\",\n        \"location\": \"Austin\",\n        \"lastRefresh\": \"2016-08-02T18:46:43.012-05:00\",\n        \"empId\": \"1a2a\",\n        \"costcenter\": [\n          \"R03\",\n          \"L07\"\n        ],\n        \"isManager\": true,\n        \"capabilities\": [],\n        \"riskScore\": 1000,\n        \"Department\": \"Regional Operations\"\n      },\n      \"schemas\": [\n        \"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\n        \"urn:ietf:params:scim:schemas:core:2.0:User\",\n        \"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"\n      ],\n      \"name\": {\n        \"formatted\": \"Don Johnson\",\n        \"familyName\": \"Johnson\",\n        \"givenName\": \"Don\"\n      },\n      \"userName\": \"Don.Johnson\",\n      \"active\": true,\n      \"emails\": [\n        {\n          \"primary\": \"true\",\n          \"value\": \"Don.Johnson@demoexample.com\",\n          \"type\": \"work\"\n        }\n      ],\n      \"displayName\": \"Don Johnson\"\n    }"
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "javascript",
+							"_postman_previewtype": "html",
+							"header": [
+								{
+									"name": "Cache-Control",
+									"key": "Cache-Control",
+									"value": "no-store",
+									"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+								},
+								{
+									"name": "Content-Length",
+									"key": "Content-Length",
+									"value": "992",
+									"description": "The length of the response body in octets (8-bit bytes)"
+								},
+								{
+									"name": "Content-Type",
+									"key": "Content-Type",
+									"value": "application/scim+json",
+									"description": "The mime type of this content"
+								},
+								{
+									"name": "Date",
+									"key": "Date",
+									"value": "Wed, 19 Oct 2016 22:56:53 GMT",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"name": "ETag",
+									"key": "ETag",
+									"value": "W/\"1476917813953\"",
+									"description": "An identifier for a specific version of a resource, often a message digest"
+								},
+								{
+									"name": "Location",
+									"key": "Location",
+									"value": "http://localhost:8080/identityiq/scim/v2/Users/2c9091fc57def0af0157df2962c1008d",
+									"description": "Used in redirection, or when a new resource has been created."
+								},
+								{
+									"name": "Pragma",
+									"key": "Pragma",
+									"value": "no-cache",
+									"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+								},
+								{
+									"name": "Server",
+									"key": "Server",
+									"value": "Apache-Coyote/1.1",
+									"description": "A name for the server"
+								}
+							],
+							"cookie": [
+								{
+									"expires": "Invalid Date",
+									"hostOnly": true,
+									"httpOnly": true,
+									"domain": "localhost",
+									"path": "/identityiq/",
+									"secure": false,
+									"session": true,
+									"value": "F1D006ACEFA992471F36133ECB5A4317"
+								},
+								{
+									"expires": "Invalid Date",
+									"hostOnly": true,
+									"httpOnly": false,
+									"domain": "localhost",
+									"path": "/",
+									"secure": false,
+									"session": true,
+									"value": "RnYPAw0aOHPX++RmSj3LkfYWZM5tA4fRB5gO3SG1US0%3D"
+								}
+							],
+							"responseTime": 68,
+							"body": "{\"id\":\"2c9091fc57def0af0157df2962c1008d\",\"urn:ietf:params:scim:schemas:sailpoint:1.0:User\":{\"region\":\"Americas\",\"jobtitle\":\"Global Infrastructure Manager\",\"location\":\"Austin\",\"locationOwner\":{},\"empId\":\"1a2a\",\"regionOwner\":{},\"costcenter\":[\"R03\",\"L07\"],\"isManager\":false,\"capabilities\":[],\"Department\":\"Regional Operations\"},\"schemas\":[\"urn:ietf:params:scim:schemas:sailpoint:1.0:User\",\"urn:ietf:params:scim:schemas:core:2.0:User\",\"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\"],\"name\":{\"formatted\":\"Don Johnson\",\"familyName\":\"Johnson\",\"givenName\":\"Don\"},\"userName\":\"Don.Johnson\",\"active\":true,\"emails\":[{\"primary\":\"true\",\"value\":\"Don.Johnson@demoexample.com\",\"type\":\"work\"}],\"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User\":{\"manager\":{}},\"displayName\":\"Don Johnson\",\"meta\":{\"created\":\"2016-10-19T17:56:53.953-05:00\",\"location\":\"http://localhost:8080/identityiq/scim/v2/Users/2c9091fc57def0af0157df2962c1008d\",\"resourceType\":\"User\",\"version\":\"W/\\\"1476917813953\\\"\"}}"
+						}
+					]
+				},
+				{
+					"name": "ResourceTypes - List",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "spadmin",
+								"password": "admin",
+								"saveHelperData": true,
+								"showPassword": false
+							}
+						},
+						"url": "http://localhost:8080/identityiq/scim/v2/ResourceTypes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic c3BhZG1pbjphZG1pbg==",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "ReadSCIMUser UpdateSCIMUser CreateSCIMUser DeleteSCIMUser",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

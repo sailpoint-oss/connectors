@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE CorrelationConfig PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<CorrelationConfig name="custom SailPoint IdentityIQ Account Correlation Config">
+	<AttributeAssignments>
+		<Filter operation="EQ" property="uid" value="userName"/>
+		<Filter operation="EQ" property="email" value="emails.home.value"/>
+		<Filter operation="EQ" property="email" value="emails.work.value"/>
+		<Filter operation="EQ" property="identificationNumber" value="employeeNumber"/>
+		<Filter operation="EQ" property="uid" value="externalId"/>
+		<Filter operation="EQ" property="uid" value="id"/>
+		<Filter operation="EQ" property="name" value="id"/>
+		<Filter operation="EQ" property="name" value="userName"/>
+		<Filter operation="EQ" property="name" value="externalId"/>
+		<Filter operation="EQ" property="name" value="employeeNumber"/>
+		<Filter operation="EQ" property="displayName" value="displayName"/>
+	</AttributeAssignments>
+</CorrelationConfig>

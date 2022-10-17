@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2016 SailPoint Technologies, Inc.  All rights reserved. -->
+<Form xmlns="http://www.sailpoint.com/xsd/sailpoint_form_1_0.xsd" name="SailPoint IdentityIQ" connectorName="custom SailPoint IdentityIQ" type="SourceConfig" directConnect="true" status="released" fileUpload="true">
+	<Section layout="horizontal">
+		<Section label="Settings">
+			<Field name="host" type="String" displayName="Base URL" required="true"/>
+		</Section>
+	</Section>
+	<Section layout="horizontal">
+		<Section label="Authentication">
+			<Field name="user" type="String" displayName="User"/>
+			<Field name="password" type="password" displayName="Password"/>
+		</Section>
+	</Section>
+	<Section layout="advanced">
+		<Section layout="horizontal">
+			<Section label="Advanced Settings" layout="horizontal">
+				<Field name="pageSize" type="String" displayName="Page Size" defaultValue="100"/>
+				<Field name="accountFilter" type="String" displayName="Filter"/>
+			</Section>
+			<Section label="Connector" layout="horizontal">
+				<Field name="connectorClass" type="String" displayName="Connector Class" defaultValue="sailpoint.iiq.connector.IIQConnector" readOnly="true"/>
+			</Section>
+		</Section>
+	</Section>
+</Form>
