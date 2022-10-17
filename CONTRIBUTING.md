@@ -52,7 +52,7 @@ Our maintainers _love_ thorough bug reports. **Great bug reports** tend to have:
 
 # Making Feature Requests
 
-We use GitHub issues to track feature requests. Please use [this template](https://github.com/sailpoint-oss/connectors/issues) when requesting a new feature.
+We use [GitHub issues](https://github.com/sailpoint-oss/connectors/issues) to track feature requests.
 
 **Great feature requests** tend to:
 
